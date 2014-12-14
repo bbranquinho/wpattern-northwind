@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- SQL SERVER -->
+		<property name="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+		<property name="hibernate.connection.url">jdbc:jtds:sqlserver://127.0.0.1:1433;databaseName=Northwind</property>
+		<property name="hibernate.connection.username">wpattern</property>
+		<property name="hibernate.connection.password">123456</property>
+
+		<!-- MySQL -->
+		<!-- <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property> -->
+		<!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property> -->
+		<!-- <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/northwind</property> -->
+		<!-- <property name="hibernate.connection.username">augusto</property> -->
+		<!-- <property name="hibernate.connection.password">123456</property> -->
+
+		<!-- CONFIGURATIONs -->
+		<!-- <property name="hibernate.show_sql">true</property> -->
+
+		<!-- ENTITIES -->
+		<mapping class="br.com.wpattern.northwind.database.entities.CategoryEntity" />
+		<mapping
+			class="br.com.wpattern.northwind.database.entities.CustomerCustomerDemoEntity" />
+		<mapping
+			class="br.com.wpattern.northwind.database.entities.CustomerDemographicEntity" />
+		<mapping class="br.com.wpattern.northwind.database.entities.CustomerEntity" />
+		<mapping class="br.com.wpattern.northwind.database.entities.EmployeeEntity" />
+		<mapping
+			class="br.com.wpattern.northwind.database.entities.EmployeeTerritoryEntity" />
+		<mapping class="br.com.wpattern.northwind.database.entities.OrderEntity" />
+		<mapping
+			class="br.com.wpattern.northwind.database.entities.OrderDetailEntity" />
+		<mapping class="br.com.wpattern.northwind.database.entities.ProductEntity" />
+		<mapping class="br.com.wpattern.northwind.database.entities.ShipperEntity" />
+		<mapping class="br.com.wpattern.northwind.database.entities.SupplierEntity" />
+		<mapping class="br.com.wpattern.northwind.database.entities.RegionEntity" />
+		<mapping class="br.com.wpattern.northwind.database.entities.TerritoryEntity" />
+	</session-factory>
+</hibernate-configuration>

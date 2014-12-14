@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.com.wpattern.northwind</groupId>
+		<artifactId>wpattern-northwind-application-all</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>wpattern-northwind-application-factory</artifactId>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- WPATTERN NORTHWIND APPLICATION -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>wpattern-northwind-application</artifactId>
+		</dependency>
+
+		<!-- WPATTERN NORTHWIND APPLICATION UTILS -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>wpattern-northwind-application-utils</artifactId>
+		</dependency>
+
+		<!-- WPATTERN NORTHWIND APPLICATION SERVICE CLIENT -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>wpattern-northwind-application-service-client</artifactId>
+		</dependency>
+
+		<!-- SPRING CONTEXT -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<shadedArtifactAttached>true</shadedArtifactAttached>
+							<shadedClassifierName>northwind</shadedClassifierName>
+							<shadedArtifactId>northwind</shadedArtifactId>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<finalName>wpattern-northwind-application-${version}</finalName>
+					<transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+							<resource>META-INF/spring.handlers</resource>
+						</transformer>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+							<resource>META-INF/spring.schemas</resource>
+						</transformer>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+							<manifestEntries>
+								<Main-Class>${main.class}</Main-Class>
+							</manifestEntries>
+						</transformer>
+					</transformers>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

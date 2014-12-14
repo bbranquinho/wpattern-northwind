@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>br.com.wpattern.northwind</groupId>
+	<artifactId>wpattern-northwind-application-all</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>wpattern-northwind-application-all</name>
+	<url>http://maven.apache.org</url>
+
+	<modules>
+		<module>wpattern-northwind-application</module>
+		<module>wpattern-northwind-application-factory</module>
+		<module>wpattern-northwind-application-service-client</module>
+		<module>wpattern-northwind-application-utils</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<wpattern.northwind.server.version>0.0.1-SNAPSHOT</wpattern.northwind.server.version>
+		<spring.version>3.1.0.RELEASE</spring.version>
+		<main.class>br.com.wpattern.northwind.application.factory.ApplicationMain</main.class>
+	</properties>
+
+	<repositories>
+		<!-- MAVEN REPOSITORY -->
+		<repository>
+			<id>mvn-repository</id>
+			<url>http://mvnrepository.com/</url>
+		</repository>
+
+		<!-- MAVEN SEARCH REPOSITORY -->
+		<repository>
+			<id>mavensearch</id>
+			<url>http://www.mvnsearch.org/maven2</url>
+		</repository>
+
+		<!-- JBOSS REPOSITORY -->
+		<repository>
+			<id>jboss-repository</id>
+			<url>https://repository.jboss.org/nexus/content/repositories/</url>
+		</repository>
+
+		<!-- JBOSS REPOSITORY -->
+		<repository>
+			<id>JBoss Repo</id>
+			<url>http://repository.jboss.com</url>
+		</repository>
+
+		<!-- GOOGLE REPOSITORY -->
+		<repository>
+			<id>google-repository</id>
+			<url>http://google-maven-repository.googlecode.com/svn/repository/</url>
+		</repository>
+
+		<!-- GLASSFISH REPOSITORY -->
+		<repository>
+			<id>glassfish-repository</id>
+			<url>http://download.java.net/maven/glassfish/</url>
+		</repository>
+
+		<!-- REPO2 REPOSITORY -->
+		<repository>
+			<id>repo2</id>
+			<url>http://repo2.maven.org/maven2</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<!-- JUNIT -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- LOG4J -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+
+		<!-- JAVAX INJECT -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+		<!-- SPRING TEST -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- SPRING CORE -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- WPATTERN NORTHWIND APPLICATION -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>wpattern-northwind-application</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- WPATTERN NORTHWIND APPLICATION FACTORY -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>wpattern-northwind-application-factory</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- WPATTERN NORTHWIND APPLICATION SERVICE CLIENT -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>wpattern-northwind-application-service-client</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- WPATTERN NORTHWIND APPLICATION UTILS -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>wpattern-northwind-application-utils</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<!-- WPATTERN NORTHWIND UTILS -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>wpattern-northwind-utils</artifactId>
+				<version>${wpattern.northwind.server.version}</version>
+			</dependency>
+
+			<!-- MIGLAYOUT (WINDOW BUILDER) -->
+			<dependency>
+				<groupId>com.miglayout</groupId>
+				<artifactId>miglayout-swing</artifactId>
+				<version>4.2</version>
+			</dependency>
+
+			<!-- COMMONS LANG3 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.1</version>
+			</dependency>
+
+			<!-- SPRING CONTEXT -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

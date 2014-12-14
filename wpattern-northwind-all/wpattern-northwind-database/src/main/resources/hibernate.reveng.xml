@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Categories"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="CustomerCustomerDemo"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="CustomerDemographics"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Customers"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="EmployeeTerritories"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Employees"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Order Details"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Orders"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Products"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Region"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Shippers"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Suppliers"/>
+  <table-filter match-catalog="Northwind" match-schema="dbo" match-name="Territories"/>
+</hibernate-reverse-engineering>

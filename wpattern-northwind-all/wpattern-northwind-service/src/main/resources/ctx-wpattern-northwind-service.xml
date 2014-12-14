@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- Define o pacote inicial que é considerado por este contexto. -->
+	<context:component-scan base-package="br.com.wpattern.northwind.service" />
+	
+	<bean id="remoteService" class="br.com.wpattern.northwind.service.Services" />
+	
+	<!-- Define o arquivo que é usado para buscar as informações de configuração. -->
+	<bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="location" value="file:./conf/northwind-conf.properties" />
+	</bean>
+	
+	<bean name="remoteServiceBean" class="org.springframework.remoting.rmi.RmiServiceExporter">
+		<property name="serviceName" value="remote-service" />
+		<property name="service" ref="remoteService" />
+		<property name="serviceInterface" value="br.com.wpattern.northwind.utils.service.interfaces.IServices" />
+		<property name="registryPort" value="${remote.service.rmi.port}" />
+	</bean>
+	
+</beans>
